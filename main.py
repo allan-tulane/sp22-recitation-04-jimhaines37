@@ -25,7 +25,8 @@ def run_map_reduce(map_f, reduce_f, docs):
     # e.g., [('am', 2), ('ham', 1), ('i', 2), ('is', 1), ('sam', 2)]
     return [reduce_f(g) for g in groups]
 
-def word_count_map(doc):
+
+def word_count_map(doc): 
     """
     Params:
       doc....a string to be split into tokens. split on whitespace.
@@ -36,9 +37,22 @@ def word_count_map(doc):
     >>> word_count_map('i am sam i am')
     [('i', 1), ('am', 1), ('sam', 1), ('i', 1), ('am', 1)]
     """
-    ###TODO
+    result = []
+    num = 0
+
+    words = doc.split()
+
+    for word in words:
+        num = word.count(word)
+        
+        result.append((
+            word,
+            num
+        ))
     
-    
+    return result
+
+      
 
 def test_word_count_map():
     assert word_count_map('i am sam i am') == \
@@ -55,9 +69,19 @@ def word_count_reduce(group):
     ('i', 2)
     
     NOTE: you should use call the `reduce` function here.
+        reduce(plus, 1, group[1]) maybe, I added this
     """
-    ###TODO
+    total = reduce(plus, 1, group[1])
+    word = group[0]
     
+    result = []
+
+    result.append((
+        word,
+        total
+    ))
+
+
     
 def test_word_count_reduce():
     assert word_count_reduce(['i', [1,1,1]]) == ('i', 3)
@@ -65,6 +89,7 @@ def test_word_count_reduce():
 def test_word_count():
     assert run_map_reduce(word_count_map, word_count_reduce, ['i am sam i am', 'sam is ham']) == \
            [('am', 2), ('ham', 1), ('i', 2), ('is', 1), ('sam', 2)]
+
 
 def iterate(f, x, a):
     # done. do not change me.
@@ -84,8 +109,8 @@ def flatten(sequences):
     return iterate(plus, [], sequences)
 
 def collect(pairs):
-    """
     # done. do not change me.
+    """
     Implements the collect function (see text Vol II Ch2)
     E.g.:
     >>> collect([('i', 1), ('am', 1), ('sam', 1), ('i', 1)])
@@ -112,8 +137,6 @@ def reduce(f, id_, a):
                  reduce(f, id_, a[len(a)//2:]))
     
     
-    
-    
 ### PART TWO ###
 
 def sentiment_map(doc,
@@ -130,7 +153,21 @@ def sentiment_map(doc,
     >>> sentiment_map('it was a terrible waste of time')
     [('negative', 1), ('negative', 1)]
     """
-    ###TODO
+
+    words = doc.split()
+    result = []
+    
+    for word in words:
+        if word in pos_terms:
+            result.append((
+                'positive',
+                1
+            ))
+        elif word in neg_terms:
+            result.append((
+                'negative',
+                1
+            ))
 
 
 def test_sentiment_map():
