@@ -38,6 +38,8 @@ To use this function to count words, you'll need to implement your own `map_f` a
 
 **Enter answer here**
 
+The work of word_count_reduce would be O(n), because reduce is implimented in parallel so the function is only dependent on input size
+
 
 5. Why are we going through all this trouble? Couldn't I just use this function to count words?
 
@@ -53,6 +55,8 @@ for doc in docs:
 What is the problem that prevents us from easily parallelizing this solution?
 
 **Enter answer here**
+
+The problem here is that the runtime becomes too large with larger values. This funtion has runtime O(n^2), so it takes much longer to compute larger input sizes. If we were counting infinite values the runtime would be huge for the larger numbers. 
 
 
 ## Part 2: Sentiment analysis
