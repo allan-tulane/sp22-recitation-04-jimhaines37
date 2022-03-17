@@ -56,7 +56,7 @@ What is the problem that prevents us from easily parallelizing this solution?
 
 **Enter answer here**
 
-The problem here is that the runtime becomes too large with larger values. This funtion has runtime O(n^2), so it takes much longer to compute larger input sizes. If we were counting infinite values the runtime would be huge for the larger numbers. 
+The problem here is that the runtime becomes too large with larger values. This funtion has 2 for loops (one nested) so its is runtime O(n^2). So, it takes much longer to compute larger input sizes. If we were counting infinite values the runtime would be huge for the larger numbers. 
 
 
 ## Part 2: Sentiment analysis
