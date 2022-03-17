@@ -38,7 +38,7 @@ To use this function to count words, you'll need to implement your own `map_f` a
 
 **Enter answer here**
 
-The work of word_count_reduce would be O(n), because reduce is implimented in parallel so the function is only dependent on input size
+The work of word_count_reduce would be O(n), because reduce is implimented in parallel so the function is only dependent on input size.
 
 
 5. Why are we going through all this trouble? Couldn't I just use this function to count words?
