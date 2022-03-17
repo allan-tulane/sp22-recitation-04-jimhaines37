@@ -80,6 +80,8 @@ def word_count_reduce(group):
         word,
         total
     ))
+    
+    return result
 
 
     
@@ -168,6 +170,8 @@ def sentiment_map(doc,
                 'negative',
                 1
             ))
+            
+    return result
 
 
 def test_sentiment_map():
